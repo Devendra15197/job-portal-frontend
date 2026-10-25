@@ -1,14 +1,12 @@
-
-import { Button } from 'radix-ui/toolbar'
 import './App.css'
+import Jobs from './pages/user/Jobs'
 
 function App() {
 
   return (
-      <>
-      <Button>Devendra Job Portals</Button>
-      Devendra Job Portals
-      </>
+    <div>
+      <Jobs />
+    </div>
   )
 }
 
