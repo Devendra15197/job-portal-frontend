@@ -8,8 +8,9 @@ import React from 'react'
 import { Briefcase } from 'lucide-react'
 import { X } from 'lucide-react'
 import { TrendingUp } from 'lucide-react'
-import { SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select'
+import { SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../../components/ui/select'
 import { useState } from 'react'
+import JobFilter from './jobFilter'
 
 
 const SORT_OPTIONS = [
@@ -74,7 +75,6 @@ const Jobs = () => {
       </section>
 
       <section className='max-w-7xl max-auto px-4 sm:px-6 lg:px-8 py-8'>
-
         <div className='flex flex-row items-center justify-between gap-3 mb-6'>
 
           <div className='flex items-center gap-3'>
@@ -111,6 +111,18 @@ const Jobs = () => {
 
               </Select>
             </div>
+          </div>
+        </div>
+
+        {/* Main Grid */}
+        <div className='grid grid-cols-1 lg:grid-cols-4 gap-6'>
+          <div>
+            <JobFilter />
+          </div>
+
+          {/* Job Lists  */}
+          <div className='lg:col-span-3 space-y-3'>
+            Job List
           </div>
         </div>
       </section>
