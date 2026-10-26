@@ -122,7 +122,7 @@ const Jobs = () => {
 
           {/* Job Lists  */}
           <div className='lg:col-span-3 space-y-3'>
-            Job List
+            Job Listings
           </div>
         </div>
       </section>
