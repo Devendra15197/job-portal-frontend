@@ -4,7 +4,8 @@ import { Button } from '../../../components/ui/button'
 import { SlidersHorizontal } from 'lucide-react'
 import { Badge } from '../../../components/ui/badge'
 import { Checkbox } from '../../../components/ui/checkbox'
-import { Seperator } from '../../../components/ui/separator'
+import { Separator } from '../../../components/ui/separator'
+import { Slider } from '../../../components/ui/slider'
 import { X } from 'lucide-react'
 
 const JOB_TYPE = [
@@ -16,7 +17,11 @@ const JOB_TYPE = [
     { value: "REMOTE", label: "Remote" }
 ]
 
+const minSalary = 60000;
+const maxSalary = 100000;
+
 const JobFilter = () => {
+
     return (
 
         <Card className='sticky top-20 border-slate-200'>
@@ -37,7 +42,7 @@ const JobFilter = () => {
                 </div>
             </CardHeader>
 
-            <CardContent>
+            <CardContent className={"space-y-5"}>
                 {/* Job Type  */}
                 <div>
                     <h4 className='text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2.5'>Job Type</h4>
@@ -52,10 +57,10 @@ const JobFilter = () => {
 
                 </div>
 
-                <Seperator />
+                <Separator />
                 {/* work mode */}
                 <div>
-                    <h4 className='text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2.5'>Job Type</h4>
+                    <h4 className='text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2.5'>Work Mode</h4>
                     <div className='space-y-2'>
                         {JOB_TYPE.map(({ value, label }) => (
                             <div className='flex items-center gap-2.5 cursor-pointer group' key={value}>
@@ -65,6 +70,43 @@ const JobFilter = () => {
                         ))}
                     </div>
 
+                </div>
+
+                <Separator />
+                {/* Experience level */}
+                <div>
+                    <h4 className='text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2.5'>Experience Level</h4>
+                    <div className='space-y-2'>
+                        {JOB_TYPE.map(({ value, label }) => (
+                            <div className='flex items-center gap-2.5 cursor-pointer group' key={value}>
+                                <Checkbox />
+                                <span>{label}</span>
+                            </div>
+                        ))}
+                    </div>
+
+                </div>
+
+                {/* Salary Range  */}
+
+                <Separator />
+                <div>
+
+                    <div>
+                        <h4 className='text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2.5'>Salary Range</h4>
+                        <span>
+                            ${minSalary.toLocaleString()} - ${maxSalary.toLocaleString()}
+                        </span>
+                    </div>
+                    <Slider
+                        min={0}
+                        max={5000000}
+                        step={10000}
+                        defaultValue={[minSalary, maxSalary]} />
+                    <div className='flex justify-between text-xs text-slate-400 mt-1.5'>
+                        <span>$0</span>
+                        <span>$500K+</span>
+                    </div>
                 </div>
             </CardContent>
         </Card >
