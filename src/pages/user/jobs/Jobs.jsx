@@ -11,6 +11,8 @@ import { TrendingUp } from 'lucide-react'
 import { SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../../components/ui/select'
 import { useState } from 'react'
 import JobFilter from './jobFilter'
+import JobCard from './JobCard'
+import { jobs } from './DummyJobs'
 
 
 const SORT_OPTIONS = [
@@ -122,7 +124,7 @@ const Jobs = () => {
 
           {/* Job Lists  */}
           <div className='lg:col-span-3 space-y-3'>
-            Job Listings
+            {jobs.map((job) => <JobCard key={job.id} job={job} />)}
           </div>
         </div>
       </section>
