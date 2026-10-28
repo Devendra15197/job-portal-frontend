@@ -7,6 +7,7 @@ import { MapPin } from 'lucide-react'
 import { Briefcase } from 'lucide-react'
 import { DollarSign } from 'lucide-react'
 import { Clock } from 'lucide-react'
+import { Badge } from '../../../components/ui/badge'
 const JobCard = ({ job }) => {
 
     const location = [job.city, job.state, job.country].filter(Boolean).join(", ");
@@ -60,6 +61,15 @@ const JobCard = ({ job }) => {
                                 <Clock className='h-4 w-4 shrink-0' />
                                 Posted on {job.createdAt?.split("T")[0]}
                             </div>
+                        </div>
+
+                        {/* Badges - Job Details  */}
+                        <div className='flex flex-wrap gap-2'>
+                            <Badge className={"bg-primary"}>{job.state}</Badge>
+                            <Badge variant='outline'>{job.experienceLevel}</Badge>
+                            <Badge variant='secondary'>{job.category?.name}</Badge>
+
+                            {job.skills.map((skill) => <Badge key={skill} variant='outline'>{skill.slug}</Badge>)}
                         </div>
                     </div>
                 </div>
