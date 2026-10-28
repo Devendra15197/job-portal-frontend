@@ -1,11 +1,13 @@
 import React from 'react'
 import { Card, CardContent } from '../../../components/ui/card'
 import { CheckCircle2 } from 'lucide-react'
+import { Button } from '../../../components/ui/button'
+import { Bookmark } from 'lucide-react'
 const JobCard = ({ job }) => {
     return (
         <Card>
             <CardContent>
-                <div >
+                <div className='flex items-start gap-4'>
                     {/* Company Logo  */}
                     <div>
                         <img className='h-16 w-16 object-fill rounded-xl' src={job.company?.logoUrl} alt="" />
@@ -28,8 +30,11 @@ const JobCard = ({ job }) => {
                                     {job.company?.tagline}
                                 </p>
                             </div>
-
+                            <Button variant='ghost'>
+                                <Bookmark />
+                            </Button>
                         </div>
+
                     </div>
                 </div>
             </CardContent>
