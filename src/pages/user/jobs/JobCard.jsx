@@ -3,11 +3,14 @@ import { Card, CardContent } from '../../../components/ui/card'
 import { CheckCircle2 } from 'lucide-react'
 import { Button } from '../../../components/ui/button'
 import { Bookmark } from 'lucide-react'
+import { Users } from 'lucide-react'
 import { MapPin } from 'lucide-react'
 import { Briefcase } from 'lucide-react'
 import { DollarSign } from 'lucide-react'
 import { Clock } from 'lucide-react'
 import { Badge } from '../../../components/ui/badge'
+import { Separator } from '../../../components/ui/separator'
+
 const JobCard = ({ job }) => {
 
     const location = [job.city, job.state, job.country].filter(Boolean).join(", ");
@@ -71,6 +74,22 @@ const JobCard = ({ job }) => {
 
                             {job.skills.map((skill) => <Badge key={skill} variant='outline'>{skill.slug}</Badge>)}
                         </div>
+
+                        <>
+                            <Separator className={"mt-4 mb-3"} />
+                            <div className='flex items-center justify-between'>
+                                <div className='flex items-center gap-3 text-xs text-muted-foreground'>
+                                    <span className='flex items-center gap-1'>
+                                        <Users className='h-3.5 w-3.5' />
+                                        {5}
+                                    </span>
+                                    <span>
+                                        {job.openings} openings
+                                    </span>
+                                </div>
+                            </div>
+                        </>
+
                     </div>
                 </div>
             </CardContent>
