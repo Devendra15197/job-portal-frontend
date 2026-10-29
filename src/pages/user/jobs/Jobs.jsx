@@ -76,58 +76,61 @@ const Jobs = () => {
         </div>
       </section>
 
-      <section className='max-w-7xl max-auto px-4 sm:px-6 lg:px-8 py-8'>
-        <div className='flex flex-row items-center justify-between gap-3 mb-6'>
+      <main className='flex flex-col items-center justify-between'>
+        <section className='max-w-7xl max-auto px-4 sm:px-6 lg:px-8 py-8'>
+          <div className='flex flex-row items-center justify-between gap-3 mb-6'>
 
-          <div className='flex items-center gap-3'>
             <div className='flex items-center gap-3'>
-              <div className='h-8 w-8 rounded-lg bg-blue-100 flex items-center justify-center'>
-                <Briefcase className='h-4 w-4 text-brand' />
+              <div className='flex items-center gap-3'>
+                <div className='h-8 w-8 rounded-lg bg-blue-100 flex items-center justify-center'>
+                  <Briefcase className='h-4 w-4 text-brand' />
+                </div>
+                <div>
+                  <p className='text-sm font-semibold text-slate-800'>{20} Jobs found</p>
+                  <p className='text-xs text-slate-500'>java developer</p>
+                </div>
               </div>
-              <div>
-                <p className='text-sm font-semibold text-slate-800'>{20} Jobs found</p>
-                <p className='text-xs text-slate-500'>java developer</p>
+
+              <Badge className='bg-blue-100 text-primary hover:bg-blue-200 cursor-pointer'>
+                <X className='h-3 w-3 mr-1' />
+                {4} filters
+              </Badge>
+            </div>
+            <div>
+              <div className='flex items-center gap-1.5'>
+                <TrendingUp />
+                <Select value={sortBy} onValueChange={handleSortBy}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+
+                  <SelectContent>
+                    {SORT_OPTIONS.map((option) => (
+                      <SelectItem key={option.value} value={option.value}>
+                        {option.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+
+                </Select>
               </div>
             </div>
-
-            <Badge className='bg-blue-100 text-primary hover:bg-blue-200 cursor-pointer'>
-              <X className='h-3 w-3 mr-1' />
-              {4} filters
-            </Badge>
           </div>
-          <div>
-            <div className='flex items-center gap-1.5'>
-              <TrendingUp />
-              <Select value={sortBy} onValueChange={handleSortBy}>
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
 
-                <SelectContent>
-                  {SORT_OPTIONS.map((option) => (
-                    <SelectItem key={option.value} value={option.value}>
-                      {option.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
+          {/* Main Grid */}
+          <div className='grid grid-cols-1 lg:grid-cols-4 gap-6'>
+            <div>
+              <JobFilter />
+            </div>
 
-              </Select>
+            {/* Job Lists  */}
+            <div className='lg:col-span-3 space-y-3'>
+              {jobs.map((job) => <JobCard key={job.id} job={job} />)}
             </div>
           </div>
-        </div>
+        </section>
+      </main>
 
-        {/* Main Grid */}
-        <div className='grid grid-cols-1 lg:grid-cols-4 gap-6'>
-          <div>
-            <JobFilter />
-          </div>
-
-          {/* Job Lists  */}
-          <div className='lg:col-span-3 space-y-3'>
-            {jobs.map((job) => <JobCard key={job.id} job={job} />)}
-          </div>
-        </div>
-      </section>
 
     </div>
   )

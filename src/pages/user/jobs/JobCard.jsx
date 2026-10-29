@@ -11,6 +11,7 @@ import { Clock } from 'lucide-react'
 import { Badge } from '../../../components/ui/badge'
 import { Separator } from '../../../components/ui/separator'
 
+const hasApplied = false;
 const JobCard = ({ job }) => {
 
     const location = [job.city, job.state, job.country].filter(Boolean).join(", ");
@@ -87,13 +88,16 @@ const JobCard = ({ job }) => {
                                         {job.openings} openings
                                     </span>
                                 </div>
+                                {hasApplied ? < Button size='sm' variant='outline'>
+                                    Applied
+                                </Button> : <Button size='sm'>Quick Apply</Button>}
                             </div>
                         </>
 
                     </div>
                 </div>
             </CardContent>
-        </Card>
+        </Card >
     )
 }
 
