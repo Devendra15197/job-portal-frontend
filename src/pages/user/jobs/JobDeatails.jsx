@@ -116,6 +116,30 @@ const JobDeatails = () => {
                             <p className='text-slate-700 whitespace-pre-line leading-relaxed'>{job.responsibilities}</p>
                         </CardContent>
                     </Card>
+
+                    {/* Requirements  */}
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>
+                                Responsibilities
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className='text-slate-700 whitespace-pre-line leading-relaxed'>{job.requirements}</p>
+                        </CardContent>
+                    </Card>
+
+                    {/* Benefits  */}
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>
+                                Responsibilities
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className='text-slate-700 whitespace-pre-line leading-relaxed'>{job.benefits}</p>
+                        </CardContent>
+                    </Card>
                 </div>
 
                 {/* Apply Card  */}
