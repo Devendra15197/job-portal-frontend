@@ -13,12 +13,15 @@ import { Clock } from 'lucide-react'
 import { Badge } from '../../../components/ui/badge'
 import { Separator } from '../../../components/ui/separator'
 import { Car } from 'lucide-react'
+import { Share } from 'lucide-react'
+import { User } from 'lucide-react'
+import { Eye } from 'lucide-react'
 
 const JobDeatails = () => {
     const location = [job.city, job.state, job.country].filter(Boolean).join(", ");
 
     return (
-        <div className='p-8'>
+        <div className='p-8 max-w-7xl max-auto'>
             <Button variant='ghost'>
                 <ArrowLeft />
                 Back to jobs
@@ -144,7 +147,63 @@ const JobDeatails = () => {
 
                 {/* Apply Card  */}
                 <div className='border'>
-                    right side
+                    <Card>
+                        <CardContent className={"space-y-4"}>
+                            <Button className={"w-full py-5"}>
+                                Apply Now
+                            </Button>
+                            <div className='flex gap-2 justify-between'>
+                                <Button variant='outline' className={"w-[80%]"}>Save</Button>
+                                <Button variant='outline' className={"w-[10%]"}>
+                                    <Share />
+                                </Button>
+                            </div>
+
+                            <Separator />
+                            <div className='text-sm text-slate-600 space-y-2'>
+                                <div className='flex items-center justify-between'>
+                                    <span className='text-slate-500'>Job Type</span>
+                                    <p className='text-slate-900 font-medium'>{job.jobType}</p>
+                                </div>
+
+                                <div className='flex items-center justify-between'>
+                                    <span className='text-slate-500'>Work Mode</span>
+                                    <p className='text-slate-900 font-medium'>{job.workMode}</p>
+                                </div>
+
+                                <div className='flex items-center justify-between'>
+                                    <span className='text-slate-500'>Experience</span>
+                                    <p className='text-slate-900 font-medium'>{job.experienceLevel}</p>
+                                </div>
+
+                                <div className='flex items-center justify-between'>
+                                    <span className='text-slate-500'>Salary</span>
+                                    <p className='text-slate-900 font-medium'>₹{job.minSalary} - ₹{job.maxSalary}</p>
+                                </div>
+
+                                <div className='flex items-center justify-between'>
+                                    <span className='text-slate-500'>Openings</span>
+                                    <p className='text-slate-900 font-medium'>{job.openings}</p>
+                                </div>
+
+                                <div className='flex items-center justify-between'>
+                                    <span className='text-slate-500'>Deadline</span>
+                                    <p className='text-slate-900 font-medium'>{job.applicationDeadline}</p>
+                                </div>
+                            </div>
+
+                            <Separator />
+
+                            <div className='flex gap-4 text-xs text-slate-500'>
+                                <span className='flex items-center gap-1'>
+                                    <Users className='h-3.5 w-3.5' /> 20 applicants
+                                </span>
+                                <span className='flex items-center gap-1'>
+                                    <Eye className='h-3.5 w-3.5' /> 150 views
+                                </span>
+                            </div>
+                        </CardContent>
+                    </Card>
                 </div>
             </div>
         </div>

@@ -91,7 +91,7 @@ export const job =
     "experienceLevel": "SENIOR_LEVEL",
     "status": "OPEN",
     "openings": 2,
-    "applicationDeadline": null,
+    "applicationDeadline": "2026-10-01",
     "expiresAt": "2026-10-01",
     "active": true,
     "createdAt": "2026-10-19T14:49:07.322707",
