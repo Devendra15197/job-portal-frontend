@@ -10,6 +10,7 @@ import { DollarSign } from 'lucide-react'
 import { Clock } from 'lucide-react'
 import { Badge } from '../../../components/ui/badge'
 import { Separator } from '../../../components/ui/separator'
+import { Link } from 'react-router-dom'
 
 const hasApplied = false;
 const JobCard = ({ job }) => {
@@ -17,87 +18,89 @@ const JobCard = ({ job }) => {
     const location = [job.city, job.state, job.country].filter(Boolean).join(", ");
 
     return (
-        <Card>
-            <CardContent>
-                <div className='flex items-start gap-4'>
-                    {/* Company Logo  */}
-                    <div>
-                        <img className='h-16 w-16 object-fill rounded-xl' src={job.company?.logoUrl} alt="" />
-                    </div>
-                    <div className='flex-1 min-w-0'>
-                        {/* Title Row + Bookmark  */}
-                        <div className='flex items-start justify-between gap-4 mb-2'>
-                            <div>
-                                <h3 className='text-lg font-bold text-slate-900 group-hover:text-primary transition-colors leading-snug line-clamp-1'>
-                                    {job.title}</h3>
-                                <div className='flex items-center gap-1.5 flex-wrap mt-0.5'>
-                                    <span className='text-slate-700 font-medium text-sm'>
-                                        {job.company?.name}
-                                    </span>
-                                    <CheckCircle2 className='h-4 w-4 fill-primary text-white shrink-0' />
-                                    <span className='text-slate-400 text-sm'>.{job.company?.industryType}</span>
-                                    <span className='text-slate-400 text-sm'>.{job.company?.companySize}</span>
+        <Link to={'/jobs/${job.id}'}>
+            <Card>
+                <CardContent>
+                    <div className='flex items-start gap-4'>
+                        {/* Company Logo  */}
+                        <div>
+                            <img className='h-16 w-16 object-fill rounded-xl' src={job.company?.logoUrl} alt="" />
+                        </div>
+                        <div className='flex-1 min-w-0'>
+                            {/* Title Row + Bookmark  */}
+                            <div className='flex items-start justify-between gap-4 mb-2'>
+                                <div>
+                                    <h3 className='text-lg font-bold text-slate-900 group-hover:text-primary transition-colors leading-snug line-clamp-1'>
+                                        {job.title}</h3>
+                                    <div className='flex items-center gap-1.5 flex-wrap mt-0.5'>
+                                        <span className='text-slate-700 font-medium text-sm'>
+                                            {job.company?.name}
+                                        </span>
+                                        <CheckCircle2 className='h-4 w-4 fill-primary text-white shrink-0' />
+                                        <span className='text-slate-400 text-sm'>.{job.company?.industryType}</span>
+                                        <span className='text-slate-400 text-sm'>.{job.company?.companySize}</span>
+                                    </div>
+                                    <p className='text-slate-400 text-xs mt-0.5 italic'>
+                                        {job.company?.tagline}
+                                    </p>
                                 </div>
-                                <p className='text-slate-400 text-xs mt-0.5 italic'>
-                                    {job.company?.tagline}
-                                </p>
+                                <Button variant='ghost'>
+                                    <Bookmark />
+                                </Button>
                             </div>
-                            <Button variant='ghost'>
-                                <Bookmark />
-                            </Button>
-                        </div>
 
-                        {/* Job Details  */}
-                        <div className='flex flex-wrap gap-x-4 gap-y-1.5 text-sm text-slate-600 mb-4'>
-                            <div className='flex items-center gap-1'>
-                                <MapPin className='h-4 w-4 shrink-0' />
-                                {location}
-                            </div>
-                            <div className='flex items-center gap-1'>
-                                <Briefcase className='h-4 w-4 shrink-0' />
-                                {job.jobType}
-                            </div>
-                            <div className='flex items-center gap-1'>
-                                <DollarSign className='h-4 w-4 shrink-0' />
-                                {job.minSalary}-{job.maxSalary}
-                            </div>
-                            <div className='flex items-center gap-1'>
-                                <Clock className='h-4 w-4 shrink-0' />
-                                Posted on {job.createdAt?.split("T")[0]}
-                            </div>
-                        </div>
-
-                        {/* Badges - Job Details  */}
-                        <div className='flex flex-wrap gap-2'>
-                            <Badge className={"bg-primary"}>{job.state}</Badge>
-                            <Badge variant='outline'>{job.experienceLevel}</Badge>
-                            <Badge variant='secondary'>{job.category?.name}</Badge>
-
-                            {job.skills.map((skill) => <Badge key={skill} variant='outline'>{skill.slug}</Badge>)}
-                        </div>
-
-                        <>
-                            <Separator className={"mt-4 mb-3"} />
-                            <div className='flex items-center justify-between'>
-                                <div className='flex items-center gap-3 text-xs text-muted-foreground'>
-                                    <span className='flex items-center gap-1'>
-                                        <Users className='h-3.5 w-3.5' />
-                                        {5}
-                                    </span>
-                                    <span>
-                                        {job.openings} openings
-                                    </span>
+                            {/* Job Details  */}
+                            <div className='flex flex-wrap gap-x-4 gap-y-1.5 text-sm text-slate-600 mb-4'>
+                                <div className='flex items-center gap-1'>
+                                    <MapPin className='h-4 w-4 shrink-0' />
+                                    {location}
                                 </div>
-                                {hasApplied ? < Button size='sm' variant='outline'>
-                                    Applied
-                                </Button> : <Button size='sm'>Quick Apply</Button>}
+                                <div className='flex items-center gap-1'>
+                                    <Briefcase className='h-4 w-4 shrink-0' />
+                                    {job.jobType}
+                                </div>
+                                <div className='flex items-center gap-1'>
+                                    <DollarSign className='h-4 w-4 shrink-0' />
+                                    {job.minSalary}-{job.maxSalary}
+                                </div>
+                                <div className='flex items-center gap-1'>
+                                    <Clock className='h-4 w-4 shrink-0' />
+                                    Posted on {job.createdAt?.split("T")[0]}
+                                </div>
                             </div>
-                        </>
 
+                            {/* Badges - Job Details  */}
+                            <div className='flex flex-wrap gap-2'>
+                                <Badge className={"bg-primary"}>{job.state}</Badge>
+                                <Badge variant='outline'>{job.experienceLevel}</Badge>
+                                <Badge variant='secondary'>{job.category?.name}</Badge>
+
+                                {job.skills.map((skill) => <Badge key={skill} variant='outline'>{skill.slug}</Badge>)}
+                            </div>
+
+                            <>
+                                <Separator className={"mt-4 mb-3"} />
+                                <div className='flex items-center justify-between'>
+                                    <div className='flex items-center gap-3 text-xs text-muted-foreground'>
+                                        <span className='flex items-center gap-1'>
+                                            <Users className='h-3.5 w-3.5' />
+                                            {5}
+                                        </span>
+                                        <span>
+                                            {job.openings} openings
+                                        </span>
+                                    </div>
+                                    {hasApplied ? < Button size='sm' variant='outline'>
+                                        Applied
+                                    </Button> : <Button size='sm'>Quick Apply</Button>}
+                                </div>
+                            </>
+
+                        </div>
                     </div>
-                </div>
-            </CardContent>
-        </Card >
+                </CardContent>
+            </Card >
+        </Link>
     )
 }
 
