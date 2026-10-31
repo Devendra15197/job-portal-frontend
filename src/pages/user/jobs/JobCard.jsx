@@ -20,7 +20,7 @@ const JobCard = ({ job }) => {
     return (
         <Link to={'/jobs/${job.id}'}>
             <Card>
-                <CardContent>
+                <CardContent className={"p-5"}>
                     <div className='flex items-start gap-4'>
                         {/* Company Logo  */}
                         <div>

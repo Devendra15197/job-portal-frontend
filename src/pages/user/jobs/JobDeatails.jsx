@@ -32,7 +32,7 @@ const JobDeatails = () => {
 
                 {/* Main Content  */}
                 <div className='lg:col-span-2 space-y-6'>
-                    <Card>
+                    <Card className={"p-5"}>
                         <CardContent>
                             <div className='flex items-start gap-4'>
                                 {/* Company Logo  */}
