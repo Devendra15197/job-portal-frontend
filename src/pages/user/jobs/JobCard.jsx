@@ -78,6 +78,7 @@ const JobCard = ({ job }) => {
                                 {job.skills.map((skill) => <Badge key={skill} variant='outline'>{skill.slug}</Badge>)}
                             </div>
 
+                            {/* Adding a comment */}
                             <>
                                 <Separator className={"mt-4 mb-3"} />
                                 <div className='flex items-center justify-between'>
