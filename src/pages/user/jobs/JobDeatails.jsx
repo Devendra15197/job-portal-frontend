@@ -16,10 +16,11 @@ import { Car } from 'lucide-react'
 import { Share } from 'lucide-react'
 import { User } from 'lucide-react'
 import { Eye } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const JobDeatails = () => {
     const location = [job.city, job.state, job.country].filter(Boolean).join(", ");
-
+    const navigate = useNavigate()
     return (
         <div className='p-8 min-w-7xl max-w-7xl max-auto'>
             <Button variant='ghost'>
@@ -149,7 +150,7 @@ const JobDeatails = () => {
                 <div className='border'>
                     <Card>
                         <CardContent className={"space-y-4"}>
-                            <Button className={"w-full py-5"}>
+                            <Button onClick={() => navigate('/apply/${job.id}')} className={"w-full py-5"}>
                                 Apply Now
                             </Button>
                             <div className='flex gap-2 justify-between'>
