@@ -3,8 +3,9 @@ import { Button } from '../../components/ui/button'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import JobInfoCard from './JobInfoCard'
+import { job } from '../user/jobs/DummyJob'
 
-const ApplyJob = (job) => {
+const ApplyJob = () => {
     const navigate = useNavigate()
     return (
         <div className='min-w-4xl max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8'>
