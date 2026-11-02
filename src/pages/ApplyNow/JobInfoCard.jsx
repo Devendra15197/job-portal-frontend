@@ -37,29 +37,6 @@ const JobInfoCard = ({ job }) => {
                                     {job.company?.tagline}
                                 </p>
                             </div>
-                            <Button variant='ghost'>
-                                <Bookmark />
-                            </Button>
-                        </div>
-
-                        {/* Job Details  */}
-                        <div className='flex flex-wrap gap-x-4 gap-y-1.5 text-sm text-slate-600 mb-4'>
-                            <div className='flex items-center gap-1'>
-                                <MapPin className='h-4 w-4 shrink-0' />
-                                {location}
-                            </div>
-                            <div className='flex items-center gap-1'>
-                                <Briefcase className='h-4 w-4 shrink-0' />
-                                {job.jobType}
-                            </div>
-                            <div className='flex items-center gap-1'>
-                                <DollarSign className='h-4 w-4 shrink-0' />
-                                {job.minSalary}-{job.maxSalary}
-                            </div>
-                            <div className='flex items-center gap-1'>
-                                <Clock className='h-4 w-4 shrink-0' />
-                                Posted on {job.createdAt?.split("T")[0]}
-                            </div>
                         </div>
 
                     </div>
