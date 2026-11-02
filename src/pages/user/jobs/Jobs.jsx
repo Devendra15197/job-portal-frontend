@@ -37,7 +37,7 @@ const Jobs = () => {
     console.log('AI Search Query:', aiQuery)
   }
   return (
-    <div>
+    <div className='w-full'>
       {/* Hero Section */}
       <section className='bg-linear-to-br from-primary via-blue-950 to-indigo-950 py-12 px-4 flex flex-col items-center justify-center text-center'>
         <div className='min-w-4xl max-w-4xl max-auto text-center'>
