@@ -2,8 +2,10 @@ import React from 'react'
 
 const ApplySteps = () => {
     return (
-        <div>
-
+        <div className='w-full py-6'>
+            <div className=''>
+                ApplySteps
+            </div>
         </div>
     )
 }
