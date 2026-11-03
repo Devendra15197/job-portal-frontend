@@ -5,22 +5,32 @@ import { ArrowLeft } from 'lucide-react'
 import JobInfoCard from './JobInfoCard'
 import { job } from '../user/jobs/DummyJob'
 import ApplySteps from './ApplySteps'
+import SelectResume from './SelectResume'
+import CoverLetterEditor from './CoverLetterEditor'
+import AdditionalDetails from './AdditionalDetails'
+import ReviewSubmit from './ReviewSubmit'
 
 const ApplyJob = () => {
     const navigate = useNavigate()
     const [currentStep, setCurrentStep] = React.useState(1)
+    const [selectedResume, setSelectedResume] = React.useState(null)
+    const [coverLetter, setCoverLetter] = React.useState('')
+    const [expectedSalary, setExpectedSalary] = React.useState('')
+    const [availableFrom, setAvailableFrom] = React.useState(null)
 
     const renderStep = () => {
-        // switch (currentStep) {
-        //     case 1:
-        //         return <div>Step 1</div>
-        //     case 2:
-        //         return <div>Step 2</div>
-        //     case 3:
-        //         return <div>Step 3</div>
-        //     default:
-        //         return <div>Unknown Step</div>
-        // }
+        switch (currentStep) {
+            case 1:
+                return <SelectResume selectedResume={selectedResume} setSelectedResume={setSelectedResume} />
+            case 2:
+                return <CoverLetterEditor coverLetter={coverLetter} setCoverLetter={setCoverLetter} />
+            case 3:
+                return <AdditionalDetails expectedSalary={expectedSalary} setExpectedSalary={setExpectedSalary} availableFrom={availableFrom} setAvailableFrom={setAvailableFrom} />
+            case 4:
+                return <ReviewSubmit selectedResume={selectedResume} coverLetter={coverLetter} expectedSalary={expectedSalary} availableFrom={availableFrom} />
+            default:
+                return <div>Unknown Step</div>
+        }
     }
 
     return (
@@ -36,11 +46,11 @@ const ApplyJob = () => {
 
             <div className='my-8'>{renderStep()}</div>
             <div className='flex items-center justify-between mr-2'>
-                <Button>
+                <Button disabled={currentStep === 1} variant='outline' onClick={() => setCurrentStep(prev => Math.max(prev - 1, 1))}>
                     <ArrowLeft className='h-4 w-4 mr-2' />
                     Previous
                 </Button>
-                <Button>
+                <Button disabled={currentStep === 4} onClick={() => setCurrentStep(prev => Math.min(prev + 1, 4))}>
                     Next
                     <ArrowLeft className='h-4 w-4 ml-2 rotate-180' />
                 </Button>
