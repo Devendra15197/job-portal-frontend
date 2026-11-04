@@ -4,7 +4,7 @@ const ApplySteps = () => {
     return (
         <div className='w-full py-6'>
             <div className=''>
-                ApplySteps
+                ApplySteps Page
             </div>
         </div>
     )
