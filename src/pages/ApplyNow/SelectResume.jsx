@@ -5,6 +5,8 @@ import { Card, CardContent } from '../../components/ui/card'
 import { Label } from '../../components/ui/label'
 const resume = [1]
 
+
+
 const SelectResume = ({ SelectedResume, setSelectedResume }) => {
     return (
         <div>
@@ -38,6 +40,7 @@ const SelectResume = ({ SelectedResume, setSelectedResume }) => {
                                             <div>
                                                 <Label>
                                                     {item.title}
+
                                                 </Label>
                                             </div>
                                         </div>
