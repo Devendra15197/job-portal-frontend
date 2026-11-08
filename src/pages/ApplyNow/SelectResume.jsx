@@ -1,6 +1,6 @@
 import { FileText } from 'lucide-react'
 import React from 'react'
-import { RadioGroup } from '../../components/ui/radio-group'
+import { RadioGroup, RadioGroupItem } from '../../components/ui/radio-group'
 import { Card, CardContent } from '../../components/ui/card'
 import { Label } from '../../components/ui/label'
 const resume = [1]
@@ -32,7 +32,7 @@ const SelectResume = ({ SelectedResume, setSelectedResume }) => {
                             <Card>
                                 <CardContent>
                                     <div>
-                                        <RadioGroupItem value={item.id.toString()} className='mr-2' />
+                                        <RadioGroupItem value={String(resume.id)} className='mr-2' />
                                         <div>
                                             <div>
                                                 <FileText className='h-6 w-6 text-slate-500' />
@@ -40,7 +40,6 @@ const SelectResume = ({ SelectedResume, setSelectedResume }) => {
                                             <div>
                                                 <Label>
                                                     {item.title}
-
                                                 </Label>
                                             </div>
                                         </div>
