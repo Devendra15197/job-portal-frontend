@@ -29,6 +29,8 @@ const SelectResume = ({ SelectedResume, setSelectedResume }) => {
             ) : (
                 <RadioGroup value={SelectedResume} onValueChange={setSelectedResume}>
                     <div>
+
+
                         {resumes.map((item) => (
                             <Card
                                 onClick={() => setSelectedResume(String(item.id))}
