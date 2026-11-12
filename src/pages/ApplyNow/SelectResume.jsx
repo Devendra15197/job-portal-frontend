@@ -40,27 +40,28 @@ const SelectResume = ({ SelectedResume, setSelectedResume }) => {
                                     : 'hover:bg-slate-100'
                                     }`}
                             >
-                                <CardContent className={"p-4"}>
-                                    <div className='flex items-center gap-4'>
-                                        <RadioGroupItem value={String(item.id)} className='mr-2' />
-                                        <div className='flex items-center gap-3 flex-1'>
+                                <CardContent className={'p-4'}>
+                                    <div className='flex items-center justify-between gap-4 w-full'>
+                                        <div className='flex items-center gap-3 flex-1 min-w-0'>
+                                            <RadioGroupItem value={String(item.id)} className='mr-2' />
                                             <div className='h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center shrink-0'>
                                                 <FileText className='h-6 w-6 text-slate-500' />
                                             </div>
                                             <div className='flex-1 min-w-0'>
-                                                <Label className={"font-medium text-slate-900 cursor-pointer block truncate"}>
+                                                <Label className={'font-medium text-slate-900 cursor-pointer block truncate'}>
                                                     {item.title}
                                                 </Label>
-                                                <span className={'inline-block text-xs px-2 py-1 mt-1 rounded-full truncate ${bg-slate-600 text-white'}>{item.resumeTemplate}</span>
-                                                {item.isDefault && (<span className='ml-2 text-xs text-green-600 font-medium'>
-                                                    Default
-                                                </span>)}
+                                                <span className={`inline-block text-xs px-2 py-0.5 mt-1 rounded-full bg-slate-600 text-white`}>{item.resumeTemplate}</span>
+                                                {item.isDefault && (
+                                                    <span className='ml-2 text-xs text-green-600 font-medium'>
+                                                        Default
+                                                    </span>)}
                                             </div>
-                                            <Button variant='outline' size='sm'>
-                                                <Eye className='h-4 w-4 mr-2' />
-                                                Preview
-                                            </Button>
                                         </div>
+                                        <Button variant='outline' size='sm' className='ml-auto shrink-0'>
+                                            <Eye className='h-4 w-4 mr-2' />
+                                            Preview
+                                        </Button>
                                     </div>
                                 </CardContent>
                             </Card>
