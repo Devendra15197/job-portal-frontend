@@ -1,9 +1,12 @@
 import React from 'react'
 import { Card, CardContent } from '../../components/ui/card'
+import { Textarea } from '../../components/ui/textarea'
 import { SparklesIcon } from 'lucide-react'
 import { Button } from '../../components/ui/button'
 import { Sparkles } from 'lucide-react'
 import { Badge } from '@/components/ui/Badge'
+import { Copy } from 'lucide-react'
+import { RotateCcw } from 'lucide-react'
 
 const tips = [
     "Highlight your relevant skills and experiences that match the job description.",
@@ -12,6 +15,15 @@ const tips = [
     "Keep it concise - 3,4 paragraphs are usually sufficient. Avoid repeating your resume.",
 ]
 const CoverLetterEditor = ({ coverLetter, setCoverLetter, selectedResume }) => {
+    const handleCopy = () => {
+        navigator.clipboard.writeText(coverLetter)
+            .then(() => {
+                console.log('Cover letter copied to clipboard!')
+            })
+            .catch((err) => {
+                console.error('Failed to copy cover letter: ', err)
+            })
+    }
     return (
         <div className='space-y-6'>
             <div>
@@ -59,6 +71,34 @@ const CoverLetterEditor = ({ coverLetter, setCoverLetter, selectedResume }) => {
                             <span>{tip}</span>
                         </li>)}
                     </ul>
+                </CardContent>
+            </Card>
+
+            {/* Editor  */}
+            <Card>
+                <CardContent className={'p-6'}>
+                    <div className='space-y-4'>
+                        <div className='flex items-center justify-between'>
+                            <h3 className='font-semibold text-slate-900'>Your Cover Letter</h3>
+                            <div className='flex gap-2'>
+                                <Button variant='outline' size='sm' onClick={handleCopy}>
+                                    <Copy className='h-4 w-4 mr-2' />
+                                    Copy
+                                </Button>
+                                <Button variant='outline' size='sm' onClick={() => setCoverLetter('')}>
+                                    <RotateCcw />
+                                    Clear
+                                </Button>
+                            </div>
+                        </div>
+                        <Textarea
+                            placeholder='Write your cover letter here or click Generate with AI to create one for you.'
+                            value={coverLetter}
+                            onChange={(e) => setCoverLetter(e.target.value)}
+                            className='min-h-100 font-mono text-sm'
+                        />
+
+                    </div>
                 </CardContent>
             </Card>
         </div>
