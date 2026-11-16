@@ -23,7 +23,7 @@ const ApplyJob = () => {
             case 1:
                 return <SelectResume selectedResume={selectedResume} setSelectedResume={setSelectedResume} />
             case 2:
-                return <CoverLetterEditor coverLetter={coverLetter} setCoverLetter={setCoverLetter} />
+                return <CoverLetterEditor coverLetter={coverLetter} setCoverLetter={setCoverLetter} selectedResume={selectedResume} />
             case 3:
                 return <AdditionalDetails expectedSalary={expectedSalary} setExpectedSalary={setExpectedSalary} availableFrom={availableFrom} setAvailableFrom={setAvailableFrom} />
             case 4:

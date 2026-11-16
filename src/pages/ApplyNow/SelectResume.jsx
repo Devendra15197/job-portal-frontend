@@ -10,7 +10,7 @@ import { Eye } from 'lucide-react'
 
 const SelectResume = ({ SelectedResume, setSelectedResume }) => {
     return (
-        <div>
+        <div className='space-y-6'>
             <div>
                 <h2 className='text-2xl font-bold text-slate-900 mb-2'>Select Resume</h2>
                 <p className='text-slate-600'>Choose a resume to submit with your application.</p>
