@@ -45,11 +45,11 @@ const AdditionalDetails = ({ expectedSalary, setExpectedSalary, availableFrom, s
                                     className={`w-full justify-start text-left font-normal ${!availableFrom && "text-muted-foreground"
                                         }`}
                                 >
-                                    <CalendarIcon />
+                                    <CalendarIcon className='mr-2 size-4' />
                                 </Button>
                             </PopoverTrigger>
 
-                            <PopoverContent>
+                            <PopoverContent className={"w-auto p-0"} align={"start"}>
                                 <Calendar
                                     mode="single"
                                     selected={availableFrom}
