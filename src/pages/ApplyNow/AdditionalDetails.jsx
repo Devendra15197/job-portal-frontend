@@ -6,6 +6,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "../../components/ui/pop
 import { Button } from '../../components/ui/button';
 import { Calendar } from '../../components/ui/calendar';
 import { CalendarIcon } from 'lucide-react';
+import { format } from 'date-fns';
 
 
 const AdditionalDetails = ({ expectedSalary, setExpectedSalary, availableFrom, setAvailableFrom }) => {
@@ -19,7 +20,7 @@ const AdditionalDetails = ({ expectedSalary, setExpectedSalary, availableFrom, s
             </div>
 
             <Card>
-                <CardContent>
+                <CardContent className={'space-y-5'}>
                     <div className='space-y-2'>
                         <Label>Expected Salary (INR)</Label>
                         <div className='relative'>
@@ -41,20 +42,20 @@ const AdditionalDetails = ({ expectedSalary, setExpectedSalary, availableFrom, s
 
                         <Popover open={open} onOpenChange={setOpen}>
                             <PopoverTrigger asChild>
-                                <Button
-                                    className={`w-full justify-start text-left font-normal ${!availableFrom && "text-muted-foreground"
+                                <Button variant='outline'
+                                    className={`py-5 w-full justify-start text-left font-normal ${!availableFrom && "text-muted-foreground"
                                         }`}
                                 >
                                     <CalendarIcon className='mr-2 size-4' />
+                                    {availableFrom ? format(availableFrom, "PPP") : "Pick a date"}
                                 </Button>
                             </PopoverTrigger>
 
-                            <PopoverContent className={"w-auto p-0"} align={"start"}>
+                            <PopoverContent className={'w-auto p-0'} align={'start'}>
                                 <Calendar
                                     mode="single"
                                     selected={availableFrom}
-                                    onSelect={setAvailableFrom}
-                                    initialFocus
+                                    onSelect={(date) => { setAvailableFrom(date); setOpen(false); }}
                                 />
                             </PopoverContent>
                         </Popover>
