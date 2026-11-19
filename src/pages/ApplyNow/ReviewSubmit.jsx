@@ -1,9 +1,17 @@
 import React from 'react'
 import { Card, CardContent } from '../../components/ui/card'
+import { format } from 'date-fns'
 
 const ReviewSubmit = ({ selectedResume, coverLetter, expectedSalary, availableFrom, job }) => {
     const location = [job.city, job.state, job.country].filter(Boolean).join(", ");
+    const formattedAvailableFrom =
+        availableFrom instanceof Date && !Number.isNaN(availableFrom.getTime())
+            ? format(availableFrom, 'PPP')
+            : 'Not specified'
 
+    const formattedSalary = expectedSalary
+        ? `₹${Number(expectedSalary).toLocaleString('en-IN')}`
+        : 'Not specified'
     return (
         <div className='space-y-6'>
             <div>
@@ -52,6 +60,37 @@ const ReviewSubmit = ({ selectedResume, coverLetter, expectedSalary, availableFr
             <Card>
                 <CardContent className={'p-6 space-y-2'}>
                     <h3 className='font-semibold text-slate-900 mb-2'>Selected Resume</h3>
+                    <p className='text-slate-600'>{selectedResume?.name}</p>
+                </CardContent>
+            </Card>
+
+            {/* Cover Letter  */}
+            <Card>
+                <CardContent className={'p-6 space-y-2'}>
+                    <h3 className='font-semibold text-slate-900 mb-2'>Cover Letter</h3>
+                    <p className='text-slate-600'>{coverLetter}</p>
+                </CardContent>
+            </Card>
+
+            {/* Additional Information  */}
+
+            <Card>
+                <CardContent className={'p-6 space-y-2'}>
+                    <h3 className='font-semibold text-slate-900 mb-2'>Additinoal Information</h3>
+                    <div className='space-y-2 text-sm'>
+                        <p className='flex items-center justify-between'>
+                            <span className='text-slate-600'>
+                                Expected Salary:
+                            </span>
+                            <span className='font-medium text-slate-900'>${formattedSalary}</span>
+                        </p>
+                        <p className='flex items-center justify-between'>
+                            <span className='text-slate-600'>
+                                Available From:
+                            </span>
+                            <span className='font-medium text-slate-900'>{formattedAvailableFrom}</span>
+                        </p>
+                    </div>
                 </CardContent>
             </Card>
         </div>

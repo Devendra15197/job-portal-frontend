@@ -12,6 +12,9 @@ import { format } from 'date-fns';
 const AdditionalDetails = ({ expectedSalary, setExpectedSalary, availableFrom, setAvailableFrom }) => {
 
     const [open, setOpen] = React.useState(false);
+    const formattedAvailableFrom = availableFrom
+        ? format(availableFrom, 'PPP')
+        : 'Not specified'
     return (
         <div className='space-y-6'>
             <div>
@@ -47,7 +50,7 @@ const AdditionalDetails = ({ expectedSalary, setExpectedSalary, availableFrom, s
                                         }`}
                                 >
                                     <CalendarIcon className='mr-2 size-4' />
-                                    {availableFrom ? format(availableFrom, "PPP") : "Pick a date"}
+                                    {formattedAvailableFrom}
                                 </Button>
                             </PopoverTrigger>
 
