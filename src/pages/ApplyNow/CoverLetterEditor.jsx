@@ -62,14 +62,16 @@ const CoverLetterEditor = ({ coverLetter, setCoverLetter, selectedResume }) => {
                     </div>
 
                     <ul className='space-y-3'>
-                        {tips.map((tip, index) => <li className='flex items-center gap-3'>
-                            <div className='h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5'>
-                                <span className='text-xs font-semibold text-brand'>
-                                    {index + 1}
-                                </span>
-                            </div>
-                            <span>{tip}</span>
-                        </li>)}
+                        {tips.map((tip, index) => (
+                            <li key={index} className='flex items-center gap-3'>
+                                <div className='h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5'>
+                                    <span className='text-xs font-semibold text-brand'>
+                                        {index + 1}
+                                    </span>
+                                </div>
+                                <span>{tip}</span>
+                            </li>
+                        ))}
                     </ul>
                 </CardContent>
             </Card>

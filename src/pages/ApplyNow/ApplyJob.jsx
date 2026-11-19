@@ -27,7 +27,7 @@ const ApplyJob = () => {
             case 3:
                 return <AdditionalDetails expectedSalary={expectedSalary} setExpectedSalary={setExpectedSalary} availableFrom={availableFrom} setAvailableFrom={setAvailableFrom} />
             case 4:
-                return <ReviewSubmit selectedResume={selectedResume} coverLetter={coverLetter} expectedSalary={expectedSalary} availableFrom={availableFrom} />
+                return <ReviewSubmit selectedResume={selectedResume} coverLetter={coverLetter} expectedSalary={expectedSalary} availableFrom={availableFrom} job={job} />
             default:
                 return <div>Unknown Step</div>
         }
