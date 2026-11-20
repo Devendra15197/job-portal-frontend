@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, CardContent } from '../../components/ui/card'
 import { format } from 'date-fns'
+import { resumes } from './DummyResumes';
 
 const ReviewSubmit = ({ selectedResume, coverLetter, expectedSalary, availableFrom, job }) => {
     const location = [job.city, job.state, job.country].filter(Boolean).join(", ");
@@ -9,8 +10,10 @@ const ReviewSubmit = ({ selectedResume, coverLetter, expectedSalary, availableFr
             ? format(availableFrom, 'PPP')
             : 'Not specified'
 
+    const selectedResumeTitle = resumes.find((r) => r.id.toString() === selectedResume)?.title ?? `Resume #${selectedResume}`
+
     const formattedSalary = expectedSalary
-        ? `₹${Number(expectedSalary).toLocaleString('en-IN')}`
+        ? `${Number(expectedSalary).toLocaleString('en-IN')}`
         : 'Not specified'
     return (
         <div className='space-y-6'>
@@ -60,7 +63,7 @@ const ReviewSubmit = ({ selectedResume, coverLetter, expectedSalary, availableFr
             <Card>
                 <CardContent className={'p-6 space-y-2'}>
                     <h3 className='font-semibold text-slate-900 mb-2'>Selected Resume</h3>
-                    <p className='text-slate-600'>{selectedResume?.name}</p>
+                    <p className='text-slate-600'>{selectedResumeTitle}</p>
                 </CardContent>
             </Card>
 
