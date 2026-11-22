@@ -64,6 +64,8 @@ const AdditionalDetails = ({ expectedSalary, setExpectedSalary, availableFrom, s
                         </Popover>
                     </div>
 
+
+
                 </CardContent>
             </Card>
         </div >
