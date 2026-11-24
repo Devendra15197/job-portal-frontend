@@ -8,7 +8,9 @@ const Profile = () => {
     return (
         <div>
             <div className='max-w-4xl min-w-4xl sm:px-4 px-8 py-8 space-y-6'>
-                <ProfileHeroCard user={user} editing={editing} uploading={uploading} />
+                <ProfileHeroCard user={user} editing={editing} uploading={uploading}
+                    onEdit={() => setEditing(true)}
+                    onCancel={() => setEditing(false)} />
             </div>
         </div>
     )
