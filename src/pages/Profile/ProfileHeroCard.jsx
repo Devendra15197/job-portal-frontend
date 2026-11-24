@@ -20,7 +20,9 @@ const ProfileHeroCard = ({ user, editing, uploading, onFileSelect, onEdit, onSav
             </div>
             <CardContent className={'px-6 pb-6 pt-0'}>
                 <div className='flex flex-col sm:flex-row sm:items-end gap-4 -mt-12 mb-5'>
-                    <AvatarUpload />
+                    <AvatarUpload user={user}
+                        uploading={uploading}
+                        onFileSelect={onFileSelect} />
                     <div className='flex-1 pb-1 z-10 bg-primary p-2 rounded-md'>
                         <div className=''>
                             <h1 className='text-xl font-bold text-slate-100'>{user.fullName}</h1>
