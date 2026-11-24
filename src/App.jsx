@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import Navbar from './pages/Navbar/Navbar'
 import UserLayout from './Layout/UserLayout'
 import ApplyJob from './pages/ApplyNow/ApplyJob'
+import Profile from './pages/Profile/profile'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
           <Route path='/' element={<Jobs />} />
           <Route path='/jobs/:id' element={<JobDeatails />} />
           <Route path='/apply/:id' element={<ApplyJob />} />
+          <Route path='/profile' element={<Profile />} />
         </Route>
 
         {/* Employer Routes  */}
