@@ -8,6 +8,8 @@ import { X } from 'lucide-react'
 import { Save } from 'lucide-react'
 
 const ProfileHeroCard = ({ user, editing, uploading, onFileSelect, onEdit, onSave, onCancel }) => {
+
+    const pct = 77;
     return (
         <Card>
 
@@ -50,6 +52,18 @@ const ProfileHeroCard = ({ user, editing, uploading, onFileSelect, onEdit, onSav
                             </div>
                         )
                     }
+                </div>
+
+                {/* Completion Bar  */}
+                <div className='bg-slate-50 rounded-xl p-4 border border-slate-200'>
+                    <div className='flex items-center justify-between mb-2'>
+                        <span className='text-sm font-semibold text-slate-700'>Profile Completion</span>
+                        <span className='text-sm font-bold text-primary'>{pct}%</span>
+                    </div>
+                    <div className='h-2 rounded-full bg-slate-200'>
+                        <div className='h-full rounded-full transition-all duration-500 bg-primary'
+                            style={{ width: `${pct}%` }}></div>
+                    </div>
                 </div>
             </CardContent>
         </Card >
