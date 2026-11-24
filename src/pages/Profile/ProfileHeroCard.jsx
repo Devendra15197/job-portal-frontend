@@ -60,9 +60,14 @@ const ProfileHeroCard = ({ user, editing, uploading, onFileSelect, onEdit, onSav
                         <span className='text-sm font-semibold text-slate-700'>Profile Completion</span>
                         <span className='text-sm font-bold text-primary'>{pct}%</span>
                     </div>
-                    <div className='h-2 rounded-full bg-slate-200'>
-                        <div className='h-full rounded-full transition-all duration-500 bg-primary'
+                    <div className='rounded-full bg-slate-200'>
+                        <div className='h-2 rounded-full transition-all duration-500 bg-primary'
                             style={{ width: `${pct}%` }}></div>
+                    </div>
+
+                    <div className='mt-3'>
+                        <span className='inline-flex items-center gap-1 text-xs text-orange-500 bg-orange-50 border border-orange-200
+                        px-2.5 py-1 rounded-full'>add Profile Photo</span>
                     </div>
                 </div>
             </CardContent>
