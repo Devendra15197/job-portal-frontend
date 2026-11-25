@@ -3,6 +3,7 @@ import ProfileHeroCard from './ProfileHeroCard'
 import { user } from './dummyUser'
 import PersonalInformation from './PersonalInformation';
 import AccountSecurityCard from './AccountSecurityCard';
+import ActivityCard from './ActivityCard';
 
 const Profile = () => {
     const [editing, setEditing] = React.useState(false);
@@ -43,6 +44,12 @@ const Profile = () => {
                             ...patch
                         }))
                     }
+                />
+                <ActivityCard
+                    user={user}
+                    editing={editing}
+                    form={form}
+
                 />
             </div>
         </div>
