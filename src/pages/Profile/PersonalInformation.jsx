@@ -51,21 +51,21 @@ const PersonalInformation = ({
                         )}
                     </div>
 
-                    {/* Email  */}
+                    {/* Email */}
                     <div className="space-y-2">
                         <Label
-                            htmlFor="fullName"
+                            htmlFor="email"
                             className="text-sm font-medium text-slate-700"
                         >
                             Email
                         </Label>
 
-                        <div className="min-h-11 flex items-center rounded-md border border-transparent bg-slate-50 px-3">
-                            <p className="text-sm text-slate-600">
-                                {user?.email}
-                            </p>
-                        </div>
-
+                        <p
+                            id="email"
+                            className="min-h-11 py-2 text-sm text-slate-600"
+                        >
+                            {user?.email || "Not available"}
+                        </p>
                     </div>
                 </div>
 

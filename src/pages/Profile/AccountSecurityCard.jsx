@@ -20,10 +20,9 @@ const AccountSecurityCard = ({
             </CardHeader>
 
             <CardContent className="space-y-5">
-                <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-                    {/* Role  */}
-
-                    <div className="space-y-2">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    {/* Role */}
+                    <div className="space-y-1">
                         <Label
                             htmlFor="role"
                             className="text-sm font-medium text-slate-700"
@@ -31,57 +30,64 @@ const AccountSecurityCard = ({
                             Role
                         </Label>
 
-                        <div className="min-h-11 flex items-center rounded-md border border-transparent bg-slate-50 px-3">
-                            <p className="text-sm text-slate-600">
-                                {user?.role}
-                            </p>
-                        </div>
-
+                        <p id="role" className="min-h-11 py-2 text-sm text-slate-600">
+                            {user?.role || "Not available"}
+                        </p>
                     </div>
 
-                    {/* Account Status  */}
-                    <div className="space-y-2">
+                    {/* Account Status */}
+                    <div className="space-y-1">
                         <Label
-                            htmlFor="fullName"
+                            htmlFor="account-status"
                             className="text-sm font-medium text-slate-700"
                         >
-                            Account Status:
+                            Account Status
                         </Label>
 
-                        <div className="min-h-11 flex items-center rounded-md border border-transparent bg-slate-50 px-3">
-                            <p className="text-sm text-slate-600">
-                                {user?.status}
-                            </p>
-                        </div>
-
+                        <p
+                            id="account-status"
+                            className="min-h-11 py-2 text-sm text-slate-600"
+                        >
+                            {user?.status || "Not available"}
+                        </p>
                     </div>
                 </div>
 
-                <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-                    {/* Sign in method */}
-
-                    <div className="space-y-2">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    {/* Sign-in method */}
+                    <div className="space-y-1">
                         <Label
-                            htmlFor="signinmethod"
+                            htmlFor="sign-in-method"
                             className="text-sm font-medium text-slate-700"
                         >
                             Sign-in method
                         </Label>
-                        <div className="min-h-11 flex items-center rounded-md border border-transparent bg-slate-50 px-3">
-                            <p className="text-sm text-slate-600">
-                                Email & Password
-                            </p>
-                        </div>
 
+                        <p
+                            id="sign-in-method"
+                            className="min-h-11 py-2 text-sm text-slate-600"
+                        >
+                            Email & Password
+                        </p>
                     </div>
 
-                    {/* Profile Image  */}
-                    <div className="space-y-2">
-                        <Label className="text-sm font-medium text-slate-700">
+                    {/* Email Verified */}
+                    <div className="space-y-1">
+                        <Label
+                            htmlFor="email-verified"
+                            className="text-sm font-medium text-slate-700"
+                        >
                             Email Verified
                         </Label>
 
-                        <p>Not Verified</p>
+                        <p
+                            id="email-verified"
+                            className="inline-flex min-h-11 items-center py-2 text-sm"
+                        >
+                            <span className="rounded-full bg-amber-100 px-2.5 py-1 font-medium text-amber-700">
+                                Not Verified
+                            </span>
+                        </p>
                     </div>
                 </div>
             </CardContent>
