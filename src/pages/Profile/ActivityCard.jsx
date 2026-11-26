@@ -88,4 +88,6 @@ const ActivityCard = ({ user,
     )
 }
 
+
+
 export default ActivityCard
