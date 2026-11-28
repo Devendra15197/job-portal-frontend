@@ -1,88 +1,43 @@
 import React from 'react'
+import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card'
+import { user } from './dummyUser'
+import { Clock } from 'lucide-react'
+import { CalendarDays } from 'lucide-react'
 
-const ActivityCard = ({ user,
-    editing,
-    form }) => {
+const ActivityCard = ({ user, }) => {
+
     return (
         <Card className="border-slate-200 shadow-sm">
             <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2 text-base">
-                    <User className="h-4 w-4" />
-                    Activity Card
+                    <Clock className="h-4 w-4" />
+                    Activity
                 </CardTitle>
             </CardHeader>
 
             <CardContent className="space-y-5">
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    {/* Role */}
-                    <div className="space-y-1">
-                        <Label
-                            htmlFor="role"
-                            className="text-sm font-medium text-slate-700"
-                        >
-                            Role
-                        </Label>
-
-                        <p id="role" className="min-h-11 py-2 text-sm text-slate-600">
-                            {user?.role || "Not available"}
-                        </p>
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+                    <div className="flex items-start gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
+                        <div className='h-9 w-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0'>
+                            <CalendarDays className="h-5 w-5 mt-0.5 text-primary" />
+                        </div>
+                        <div >
+                            <p className="text-xs text-slate-500 font-medium">Member Since</p>
+                            <p className='text-sm font-semibold text-slate-800'>{user?.createdAt.split('T')[0]}</p>
+                        </div>
                     </div>
 
-                    {/* Account Status */}
-                    <div className="space-y-1">
-                        <Label
-                            htmlFor="account-status"
-                            className="text-sm font-medium text-slate-700"
-                        >
-                            Account Status
-                        </Label>
-
-                        <p
-                            id="account-status"
-                            className="min-h-11 py-2 text-sm text-slate-600"
-                        >
-                            {user?.status || "Not available"}
-                        </p>
+                    <div className="flex items-start gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
+                        <div className='h-9 w-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0'>
+                            <CalendarDays className="h-5 w-5 mt-0.5 text-primary" />
+                        </div>
+                        <div >
+                            <p className="text-xs text-slate-500 font-medium">Last Login</p>
+                            <p className='text-sm font-semibold text-slate-800'>{user?.lastLogin.split('T')[0]}</p>
+                        </div>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    {/* Sign-in method */}
-                    <div className="space-y-1">
-                        <Label
-                            htmlFor="sign-in-method"
-                            className="text-sm font-medium text-slate-700"
-                        >
-                            Sign-in method
-                        </Label>
-
-                        <p
-                            id="sign-in-method"
-                            className="min-h-11 py-2 text-sm text-slate-600"
-                        >
-                            Email & Password
-                        </p>
-                    </div>
-
-                    {/* Email Verified */}
-                    <div className="space-y-1">
-                        <Label
-                            htmlFor="email-verified"
-                            className="text-sm font-medium text-slate-700"
-                        >
-                            Email Verified
-                        </Label>
-
-                        <p
-                            id="email-verified"
-                            className="inline-flex min-h-11 items-center py-2 text-sm"
-                        >
-                            <span className="rounded-full bg-amber-100 px-2.5 py-1 font-medium text-amber-700">
-                                Not Verified
-                            </span>
-                        </p>
-                    </div>
-                </div>
             </CardContent>
         </Card>
     )

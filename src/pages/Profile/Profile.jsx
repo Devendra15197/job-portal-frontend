@@ -47,9 +47,6 @@ const Profile = () => {
                 />
                 <ActivityCard
                     user={user}
-                    editing={editing}
-                    form={form}
-
                 />
             </div>
         </div>
